@@ -1,0 +1,33 @@
+
+# Dependencies and build output
+node_modules/
+frontend/node_modules/
+frontend/dist/
+backend/target/
+dist/
+build/
+
+# Environment files and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Local configuration
+application-local.properties
+application-prod.properties
+
+# Logs
+*.log
+logs/
+
+# IDE and operating system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+.postman/
+# Python generated files
+__pycache__/
+*.py[cod]
