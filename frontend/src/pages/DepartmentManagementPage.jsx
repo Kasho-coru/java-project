@@ -161,15 +161,23 @@ export const DepartmentManagementPage = () => {
     }
   };
 
-  const handleDelete = async (id) => {
-    if (!window.confirm('Are you sure you want to delete this department?')) return;
-    try {
-      await departmentService.delete(id);
-      setDepartments((prev) => prev.filter((d) => d.id !== id));
-    } catch {
-      setDepartments((prev) => prev.filter((d) => d.id !== id));
-    }
-  };
+  
+const handleDelete = async (id) => {
+  if (!window.confirm('Are you sure you want to delete this department?')) return;
+
+  try {
+    await departmentService.delete(id);
+    setDepartments((prev) => prev.filter((d) => d.id !== id));
+    alert('Department deleted successfully.');
+  } catch (err) {
+    const message =
+      err.response?.data?.message ||
+      'Unable to delete department. Please try again.';
+
+    alert(message);
+  }
+};
+
 
   return (
     <div className="space-y-6">
